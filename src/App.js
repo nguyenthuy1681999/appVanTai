@@ -11,7 +11,8 @@ import DriverPage from './pages/DriverPage/DriverPage'
 import DriverActionPage from './pages/DriverActionPage/DriverActionPage'
 import StreetPage from './pages/StreetPage/StreetPage'
 import StreetActionPage from './pages/StreetActionPage/StreetActionPage'
-
+import CoachPage from './pages/CoachPage/CoachPage'
+import CoachActionPage from './pages/CoachActionPage/CoachActionPage'
 
 
 class App extends Component {
@@ -37,8 +38,6 @@ class App extends Component {
 
 						<Route path='/driver/:id/edit' exact={false} component={({match, history}) => <DriverActionPage match={match} history={history}/>}/>
 
-
-
 						<Route path='/streetPage' exact={false} component={StreetPage}/>
 
 						<Route path='/street/add' exact={false} component={({history}) => <StreetActionPage history={history}/>}/>
@@ -46,7 +45,12 @@ class App extends Component {
 						<Route path='/street/:id/edit' exact={false} component={({match, history}) => <StreetActionPage match={match} history={history}/>}/>
 
 						
-						
+						<Route path='/coachPage' exact={false} component={CoachPage}/>
+
+						<Route path='/coach/add' exact={false} component={({history}) => <CoachActionPage history={history}/>}/>
+
+						<Route path='/coach/:id/edit' exact={false} component={({match, history}) => <CoachActionPage match={match} history={history}/>}/>
+
 
 						<Route path='' exact={false} component={NotFoundPage}/>
 

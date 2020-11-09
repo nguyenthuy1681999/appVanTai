@@ -51,11 +51,11 @@ class Menu extends Component {
                             to='./streetPage'
                             activeOnlyWhenExact= {true}
                         />
-                        {/* <MenuLink 
+                        <MenuLink 
                             label = 'chuyến xe '
-                            to='./'
+                            to='./coachPage'
                             activeOnlyWhenExact= {true}
-                        /> */}
+                        />
                         </ul>
                     </div>
                 </nav>
