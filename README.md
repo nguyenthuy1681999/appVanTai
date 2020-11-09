@@ -1,6 +1,6 @@
 # Bài tập lớn môn Lập trình web
 
-## Su dung gia lap API MockAPI
+## Sử dụng giải lập API MockAPI
 [Link](https://mockapi.io/projects/5fa6d9b7085bf700163de913)
 
 ## Cài đặt môi trường: nodejs và npm
