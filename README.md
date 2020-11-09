@@ -7,6 +7,7 @@ https://mockapi.io/projects/5fa6d9b7085bf700163de913
 https://stackjava.com/nodejs/huong-dan-cai-dat-cau-hinh-nodejs-npm-tren-windows.html
 
 ## Khởi động:
-1 - git clone 
-1 - npm install
-2 - npm start
+1 - git clone https://github.com/kiennguyen131/appVanTai.git 
+2 - cd appVanTai
+3 - npm install
+4 - npm start
