@@ -1,13 +1,13 @@
 # Bài tập lớn môn Lập trình web
 
 ## Su dung gia lap API MockAPI
-https://mockapi.io/projects/5fa6d9b7085bf700163de913
+[Link](https://mockapi.io/projects/5fa6d9b7085bf700163de913)
 
 ## Cài đặt môi trường: nodejs và npm
-https://stackjava.com/nodejs/huong-dan-cai-dat-cau-hinh-nodejs-npm-tren-windows.html
+[Hướng dẫn cài đặt nodejs và npm](https://stackjava.com/nodejs/huong-dan-cai-dat-cau-hinh-nodejs-npm-tren-windows.html)
 
 ## Khởi động:
-1 - git clone https://github.com/kiennguyen131/appVanTai.git 
-2 - cd appVanTai
-3 - npm install
-4 - npm start
+1. `git clone https://github.com/kiennguyen131/appVanTai.git `
+2. `cd appVanTai`
+3. `npm install`
+4. `npm start`
