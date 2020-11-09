@@ -41,12 +41,12 @@ class Menu extends Component {
                             to='/busesPage'
                             activeOnlyWhenExact= {true}
                         />
-                        {/* <MenuLink 
+                        <MenuLink 
                             label = 'Tài xế'
-                            to='./'
+                            to='./driverPage'
                             activeOnlyWhenExact= {true}
                         />
-                        <MenuLink 
+                        {/* <MenuLink 
                             label = 'Tuyến xe'
                             to='./'
                             activeOnlyWhenExact= {true}

@@ -7,6 +7,9 @@ import HomePage from './pages/HomePage/HomePage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 import BusesPage from './pages/BusesPage/BusesPage'
 import BusesActionPage from './pages/BusesActionPage/BusesActionPage'
+import DriverPage from './pages/DriverPage/DriverPage'
+import DriverActionPage from './pages/DriverActionPage/DriverActionPage'
+
 
 
 class App extends Component {
@@ -25,6 +28,15 @@ class App extends Component {
 						<Route path='/buses/add' exact={false} component={({history}) => <BusesActionPage history={history}/>}/>
 
 						<Route path='/buses/:id/edit' exact={false} component={({match, history}) => <BusesActionPage match={match} history={history}/>}/>
+
+
+						<Route path='/driverPage' exact={false} component={DriverPage}/>
+
+						<Route path='/driver/add' exact={false} component={({history}) => <DriverActionPage history={history}/>}/>
+
+						<Route path='/driver/:id/edit' exact={false} component={({match, history}) => <DriverActionPage match={match} history={history}/>}/>
+
+						
 
 						<Route path='' exact={false} component={NotFoundPage}/>
 
