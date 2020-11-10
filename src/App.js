@@ -13,6 +13,7 @@ import StreetPage from './pages/StreetPage/StreetPage'
 import StreetActionPage from './pages/StreetActionPage/StreetActionPage'
 import CoachPage from './pages/CoachPage/CoachPage'
 import CoachActionPage from './pages/CoachActionPage/CoachActionPage'
+import Statistical from './pages/Statistical/Statistical'
 
 
 class App extends Component {
@@ -44,13 +45,13 @@ class App extends Component {
 
 						<Route path='/street/:id/edit' exact={false} component={({match, history}) => <StreetActionPage match={match} history={history}/>}/>
 
-						
 						<Route path='/coachPage' exact={false} component={CoachPage}/>
 
 						<Route path='/coach/add' exact={false} component={({history}) => <CoachActionPage history={history}/>}/>
 
 						<Route path='/coach/:id/edit' exact={false} component={({match, history}) => <CoachActionPage match={match} history={history}/>}/>
 
+						<Route path='/statistical' exact={false} component={Statistical}/>
 
 						<Route path='' exact={false} component={NotFoundPage}/>
 

@@ -52,8 +52,13 @@ class Menu extends Component {
                             activeOnlyWhenExact= {true}
                         />
                         <MenuLink 
-                            label = 'chuyến xe '
+                            label = 'Chuyến xe '
                             to='./coachPage'
+                            activeOnlyWhenExact= {true}
+                        />
+                        <MenuLink 
+                            label = 'Thống kê'
+                            to='./statistical'
                             activeOnlyWhenExact= {true}
                         />
                         </ul>
