@@ -105,6 +105,9 @@ class BusesActionPage extends Component {
         var {bienXe, mauXe, hangSanXuat, doiXe, model, soGhe, soNamSuDung,ngayBaoDuongCuoiCung} = this.state;
         return (
             <div className="col-6">
+                <Link to="/busesPage" className="btn btn-danger mb-4 mt-4">
+                    Quay lại
+                </Link>
                 <form onSubmit={this.onSave}>
                     <div className="form-group">
                         <label>Biển số</label>
@@ -178,9 +181,6 @@ class BusesActionPage extends Component {
                             type="date" 
                             className="form-control"/>
                     </div>
-                    <Link to="/busesPage" className="btn btn-danger mr-3">
-                        Quay lại
-                    </Link>
                     <button   
                         type="submit" 
                         className="btn btn-primary">Lưu lại

@@ -97,6 +97,9 @@ class CoachActionPage extends Component {
         var {maSo, chuyen, laiXe, phuXe, soKhach, giaVe} = this.state;
         return (
             <div className="col-6">
+                <Link to="/coachPage" className="btn btn-danger mb-4 mt-4">
+                    Quay lại
+                </Link>
                 <form onSubmit={this.onSave}>
                     <div className="form-group">
                         <label>Mã số</label>
@@ -152,9 +155,6 @@ class CoachActionPage extends Component {
                             type="number" 
                             className="form-control"/>
                     </div>
-                    <Link to="/coachPage" className="btn btn-danger mr-3">
-                        Quay lại
-                    </Link>
                     <button   
                         type="submit" 
                         className="btn btn-primary">Lưu lại

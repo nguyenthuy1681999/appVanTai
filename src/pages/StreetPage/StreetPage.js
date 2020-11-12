@@ -92,7 +92,7 @@ class StreetPage extends Component {
             }
             if(filter.filterDoPhucTap){
                 street = street.filter((item) => {
-                    return item.doPhucTap === filter.filterDoPhucTap;
+                    return parseInt(item.doPhucTap) === filter.filterDoPhucTap;
                 })
             }
             

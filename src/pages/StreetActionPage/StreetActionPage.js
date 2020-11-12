@@ -89,9 +89,12 @@ class dActionPage extends Component {
         var {diemDau, diemCuoi, doDai, doPhucTap} = this.state;
         return (
             <div className="col-6">
+                <Link to="/streetPage" className="btn btn-danger mb-4 mt-4">
+                    Quay lại
+                </Link>
                 <form onSubmit={this.onSave}>
                     <div className="form-group">
-                        <label>Biển số</label>
+                        <label>Điểm đầu</label>
                         <input 
                             onChange={this.onChange} 
                             value={diemDau} 
@@ -100,7 +103,7 @@ class dActionPage extends Component {
                             className="form-control"/>
                     </div>
                     <div className="form-group">
-                        <label>Mầu xe</label>
+                        <label>Điểm cuối</label>
                         <input 
                             onChange={this.onChange} 
                             value={diemCuoi} 
@@ -109,7 +112,7 @@ class dActionPage extends Component {
                             className="form-control"/>
                     </div>
                     <div className="form-group">
-                        <label>Hãng sản xuất</label>
+                        <label>Độ dài</label>
                         <input 
                             onChange={this.onChange}
                             value={doDai} 
@@ -117,18 +120,20 @@ class dActionPage extends Component {
                             type="number" 
                             className="form-control"/>
                     </div>
-                    <div className="form-group">
-                        <label>Đời xe</label>
-                        <input 
-                            onChange={this.onChange} 
-                            value={doPhucTap} 
-                            name="doPhucTap" 
-                            type="number" 
-                            className="form-control"/>
+
+                    <div class="form-group">
+                    <label>Độ phức tạp</label>
+                        <select id="inputState" 
+                        class="form-control" 
+                        onChange={this.onChange} 
+                        value={doPhucTap} 
+                        name="doPhucTap" 
+                        type="number" >
+                            <option selected>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
                     </div>
-                    <Link to="/streetPage" className="btn btn-danger mr-3">
-                        Quay lại
-                    </Link>
                     <button   
                         type="submit" 
                         className="btn btn-primary">Lưu lại

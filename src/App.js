@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Switch, Route, BrowserRouter as Router} from 'react-router-dom'
+import './App.css'
 
 import Menu from './components/menu/menu';
 import HomePage from './pages/HomePage/HomePage'

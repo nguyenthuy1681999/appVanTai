@@ -101,6 +101,9 @@ class DriverActionPage extends Component {
         var {ten, cmt, maSoBangLai, loaiBangLai, diaChi, ngaySinh, thamNien} = this.state;
         return (
             <div className="col-6">
+                <Link to="/driverPage" className="btn btn-danger mb-4 mt-4">
+                    Quay lại
+                </Link>
                 <form onSubmit={this.onSave}>
                     <div className="form-group">
                         <label>Tên</label>
@@ -165,9 +168,6 @@ class DriverActionPage extends Component {
                             type="number" 
                             className="form-control"/>
                     </div>
-                    <Link to="/driverPage" className="btn btn-danger mr-3">
-                        Quay lại
-                    </Link>
                     <button   
                         type="submit" 
                         className="btn btn-primary">Lưu lại
