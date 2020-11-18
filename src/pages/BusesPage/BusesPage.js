@@ -25,7 +25,7 @@ class BusesPage extends Component {
     componentDidMount(){
         axios({
             method: 'GET',
-            url: 'https://5fa6d9b7085bf700163de912.mockapi.io/myapp/buses',
+            url: 'http://localhost:8080/api/v1/cars/',
             data: null
         }).then(res => {
             this.setState({
@@ -39,7 +39,7 @@ class BusesPage extends Component {
         var {buses} = this.state;
         axios({
             method: 'DELETE',
-            url: `https://5fa6d9b7085bf700163de912.mockapi.io/myapp/buses/${id}`,
+            url: `http://localhost:8080/api/v1/cars/${id}`,
             data: null
         }).then(res => { 
             if(res.status === 200){

@@ -18,6 +18,8 @@ import Statistical from './pages/Statistical/Statistical'
 
 
 class App extends Component {
+	
+	
   render(){
     return (
 		<Router>
@@ -55,7 +57,7 @@ class App extends Component {
 						<Route path='/statistical' exact={false} component={Statistical}/>
 
 						<Route path='' exact={false} component={NotFoundPage}/>
-
+						
 					</Switch>	
 					</div>
 				</div>

@@ -24,7 +24,7 @@ class driverPage extends Component {
     componentDidMount(){
         axios({
             method: 'GET',
-            url: 'https://5fa6d9b7085bf700163de912.mockapi.io/myapp/driver',
+            url: 'http://localhost:8080/api/v1/drivers/',
             data: null
         }).then(res => {
             this.setState({
@@ -38,7 +38,7 @@ class driverPage extends Component {
         var {driver} = this.state;
         axios({
             method: 'DELETE',
-            url: `https://5fa6d9b7085bf700163de912.mockapi.io/myapp/driver/${id}`,
+            url: `http://localhost:8080/api/v1/drivers/${id}`,
             data: null
         }).then(res => { 
             if(res.status === 200){

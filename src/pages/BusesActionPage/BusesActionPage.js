@@ -1,44 +1,44 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class BusesActionPage extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             id: '',
-            bienXe:'',
+            bienXe: '',
             mauXe: '',
             hangSanXuat: '',
             doiXe: '',
             model: '',
             soGhe: '',
             soNamSuDung: '',
-            ngayBaoDuongCuoiCung: '',  
+            ngayBaoDuongCuoiCung: '',
         }
     }
 
-    componentDidMount(){
-        var {match} = this.props;
-        if(match){
+    componentDidMount() {
+        var { match } = this.props;
+        if (match) {
             var id = match.params.id;
             axios({
                 method: 'GET',
-                url: `https://5fa6d9b7085bf700163de912.mockapi.io/myapp/buses/${id}`,
+                url: `http://localhost:8080/api/v1/cars/${id}`,
                 data: null
-            }).then(res => { 
-                if(res.status === 200){
+            }).then(res => {
+                if (res.status === 200) {
                     var data = res.data;
-                    this.setState({ 
+                    this.setState({
                         id: data.id,
-                        bienXe:data.bienXe,
+                        bienXe: data.bienXe,
                         mauXe: data.mauXe,
                         hangSanXuat: data.hangSanXuat,
                         doiXe: data.doiXe,
                         model: data.model,
                         soGhe: data.soGhe,
                         soNamSuDung: data.soNamSuDung,
-                        ngayBaoDuongCuoiCung: data.ngayBaoDuongCuoiCung,  
+                        ngayBaoDuongCuoiCung: data.ngayBaoDuongCuoiCung,
                     })
                 }
             }).catch(err => {
@@ -56,53 +56,55 @@ class BusesActionPage extends Component {
         })
     }
     onSave = (e) => {
+
         e.preventDefault();
-        var {history} = this.props;
-        var {id, bienXe, mauXe, hangSanXuat, doiXe, model, soGhe, soNamSuDung,ngayBaoDuongCuoiCung} = this.state
-        if(id){
+        var { history } = this.props;
+        var { id, bienXe, mauXe, hangSanXuat, doiXe, model, soGhe, soNamSuDung, ngayBaoDuongCuoiCung } = this.state
+        if (id) {
             axios({
                 method: 'PUT',
-                url: `https://5fa6d9b7085bf700163de912.mockapi.io/myapp/buses/${id}`,
+                url: `http://localhost:8080/api/v1/cars/`,
                 data: {
-                    bienXe: bienXe,
-                    mauXe: mauXe,
-                    hangSanXuat : hangSanXuat ,
-                    doiXe : doiXe,
-                    model : model,
-                    soGhe : soGhe,
-                    soNamSuDung : soNamSuDung,
-                    ngayBaoDuongCuoiCung : ngayBaoDuongCuoiCung
-                }
+                    id,
+                    bienXe,
+                    mauXe,
+                    hangSanXuat,
+                    doiXe,
+                    model,
+                    soGhe,
+                    soNamSuDung,
+                    ngayBaoDuongCuoiCung
+                },
             }).then(res => {
-                history.goBack(); 
-            }).catch(err => {
+                history.goBack();
+            }).catch(err => {            
                 console.log(err);
             });
-        }else{
+        } else {
             axios({
                 method: 'POST',
-                url: 'https://5fa6d9b7085bf700163de912.mockapi.io/myapp/buses',
+                url: `http://localhost:8080/api/v1/cars/${id}`,
                 data: {
                     bienXe: bienXe,
                     mauXe: mauXe,
-                    hangSanXuat : hangSanXuat ,
-                    doiXe : doiXe,
-                    model : model,
-                    soGhe : soGhe,
-                    soNamSuDung : soNamSuDung,
-                    ngayBaoDuongCuoiCung : ngayBaoDuongCuoiCung
+                    hangSanXuat: hangSanXuat,
+                    doiXe: doiXe,
+                    model: model,
+                    soGhe: soGhe,
+                    soNamSuDung: soNamSuDung,
+                    ngayBaoDuongCuoiCung: ngayBaoDuongCuoiCung
                 }
             }).then(res => {
-                history.goBack(); 
+                history.goBack();
             }).catch(err => {
                 console.log(err);
             });
         }
- 
-        
+
+
     }
-    render() { 
-        var {bienXe, mauXe, hangSanXuat, doiXe, model, soGhe, soNamSuDung,ngayBaoDuongCuoiCung} = this.state;
+    render() {
+        var { bienXe, mauXe, hangSanXuat, doiXe, model, soGhe, soNamSuDung, ngayBaoDuongCuoiCung } = this.state;
         return (
             <div className="col-6">
                 <Link to="/busesPage" className="btn btn-danger mb-4 mt-4">
@@ -111,81 +113,82 @@ class BusesActionPage extends Component {
                 <form onSubmit={this.onSave}>
                     <div className="form-group">
                         <label>Biển số</label>
-                        <input 
-                            onChange={this.onChange} 
-                            value={bienXe} 
-                            name="bienXe" 
-                            type="text" 
-                            className="form-control"/>
+                        <input
+                            onChange={this.onChange}
+                            value={bienXe}
+                            name="bienXe"
+                            type="text"
+                            className="form-control" />
                     </div>
                     <div className="form-group">
-                        <label>Mầu xe</label>
-                        <input 
-                            onChange={this.onChange} 
-                            value={mauXe} 
-                            name="mauXe" 
-                            type="text" 
-                            className="form-control"/>
+                        <label>Màu xe</label>
+                        <input
+                            onChange={this.onChange}
+                            value={mauXe}
+                            name="mauXe"
+                            type="text"
+                            className="form-control" />
                     </div>
                     <div className="form-group">
                         <label>Hãng sản xuất</label>
-                        <input 
+                        <input
                             onChange={this.onChange}
-                            value={hangSanXuat} 
-                            name="hangSanXuat" 
-                            type="text" 
-                            className="form-control"/>
+                            value={hangSanXuat}
+                            name="hangSanXuat"
+                            type="text"
+                            className="form-control" />
                     </div>
                     <div className="form-group">
                         <label>Đời xe</label>
-                        <input 
-                            onChange={this.onChange} 
-                            value={doiXe} 
-                            name="doiXe" 
-                            type="text" 
-                            className="form-control"/>
+                        <input
+                            onChange={this.onChange}
+                            value={doiXe}
+                            name="doiXe"
+                            type="text"
+                            className="form-control" />
                     </div>
                     <div className="form-group">
                         <label>Model</label>
-                        <input 
-                            onChange={this.onChange} 
-                            value={model} 
-                            name="model" 
-                            type="number" 
-                            className="form-control"/>
+                        <input
+                            onChange={this.onChange}
+                            value={model}
+                            name="model"
+                            type="number"
+                            className="form-control" />
                     </div>
                     <div className="form-group">
                         <label>Số ghế</label>
-                        <input 
-                            onChange={this.onChange} 
-                            value={soGhe} 
-                            name="soGhe" 
-                            type="number" 
-                            className="form-control"/>
+                        <input
+                            onChange={this.onChange}
+                            value={soGhe}
+                            name="soGhe"
+                            type="number"
+                            className="form-control" />
                     </div>
                     <div className="form-group">
                         <label>Số năm sử dụng</label>
-                        <input 
-                            onChange={this.onChange} 
-                            value={soNamSuDung} 
-                            name="soNamSuDung" 
-                            type="number" 
-                            className="form-control"/>
+                        <input
+                            onChange={this.onChange}
+                            value={soNamSuDung}
+                            name="soNamSuDung"
+                            type="number"
+                            className="form-control" />
                     </div>
-                    <div  className="form-group">
+                    <div></div>
+                    <div className="form-group">
                         <label>Ngày bảo dưỡng cuối cùng</label>
-                        <input 
-                            onChange={this.onChange} 
-                            name="ngayBaoDuongCuoiCung" 
-                            value={ngayBaoDuongCuoiCung} 
-                            type="date" 
-                            className="form-control"/>
+                        <input
+                            onChange={this.onChange}
+                            name="ngayBaoDuongCuoiCung"
+                            value={ngayBaoDuongCuoiCung}
+                            type="date"
+                            className="form-control" />
                     </div>
-                    <button   
-                        type="submit" 
+                    <button
+                        type="submit"
                         className="btn btn-primary">Lưu lại
                     </button>
-                    
+
                 </form>
             </div>
         )

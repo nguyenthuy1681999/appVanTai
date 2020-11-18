@@ -8,7 +8,7 @@ class CoachActionPage extends Component {
         this.state = {
             id: '',
             maSo:'',
-            chuyen: '',
+            tuyen: '',
             laiXe: '',
             phuXe: '',
             soKhach: '',
@@ -22,7 +22,7 @@ class CoachActionPage extends Component {
             var id = match.params.id;
             axios({
                 method: 'GET',
-                url: `https://5fa6d9b7085bf700163de912.mockapi.io/myapp/coach/${id}`,
+                url: `http://localhost:8080/api/v1/trips/${id}`,
                 data: null
             }).then(res => { 
                 if(res.status === 200){
@@ -30,11 +30,11 @@ class CoachActionPage extends Component {
                     this.setState({ 
                         id: data.id,
                         maSo:data.maSo,
-                        chuyen: data.chuyen,
+                        tuyen: data.tuyen,
                         laiXe: data.laiXe,
                         phuXe: data.phuXe,
                         soKhach: data.soKhach,
-                        giaVe: data.giaVe
+                        giaVe: data.giaVe,
                     })
                 }
             }).catch(err => {
@@ -54,18 +54,19 @@ class CoachActionPage extends Component {
     onSave = (e) => {
         e.preventDefault();
         var {history} = this.props;
-        var {id, maSo, chuyen, laiXe, phuXe, soKhach, giaVe} = this.state
+        var {id, maSo, tuyen, laiXe, phuXe, soKhach, giaVe} = this.state
         if(id){
             axios({
                 method: 'PUT',
-                url: `https://5fa6d9b7085bf700163de912.mockapi.io/myapp/coach/${id}`,
+                url: `http://localhost:8080/api/v1/trips/`,
                 data: {
-                    maSo: maSo,
-                    chuyen: chuyen,
-                    laiXe : laiXe ,
-                    phuXe : phuXe,
-                    soKhach : soKhach,
-                    giaVe : giaVe,
+                    id,
+                    maSo,
+                    tuyen,
+                    laiXe,
+                    phuXe,
+                    soKhach,
+                    giaVe
                 }
             }).then(res => {
                 history.goBack(); 
@@ -75,10 +76,10 @@ class CoachActionPage extends Component {
         }else{
             axios({
                 method: 'POST',
-                url: 'https://5fa6d9b7085bf700163de912.mockapi.io/myapp/coach',
+                url: `http://localhost:8080/api/v1/trips/${id}`,
                 data: {
                     maSo: maSo,
-                    chuyen: chuyen,
+                    tuyen: tuyen,
                     laiXe : laiXe ,
                     phuXe : phuXe,
                     soKhach : soKhach,
@@ -94,7 +95,7 @@ class CoachActionPage extends Component {
         
     }
     render() { 
-        var {maSo, chuyen, laiXe, phuXe, soKhach, giaVe} = this.state;
+        var {maSo, tuyen, laiXe, phuXe, soKhach, giaVe} = this.state;
         return (
             <div className="col-6">
                 <Link to="/coachPage" className="btn btn-danger mb-4 mt-4">
@@ -111,11 +112,11 @@ class CoachActionPage extends Component {
                             className="form-control"/>
                     </div>
                     <div className="form-group">
-                        <label>Chuyến</label>
+                        <label>Tuyến</label>
                         <input 
                             onChange={this.onChange} 
-                            value={chuyen} 
-                            name="chuyen" 
+                            value={tuyen} 
+                            name="tuyen" 
                             type="text" 
                             className="form-control"/>
                     </div>
@@ -138,7 +139,7 @@ class CoachActionPage extends Component {
                             className="form-control"/>
                     </div>
                     <div className="form-group">
-                        <label>Số Khác</label>
+                        <label>Số Khách</label>
                         <input 
                             onChange={this.onChange} 
                             value={soKhach} 

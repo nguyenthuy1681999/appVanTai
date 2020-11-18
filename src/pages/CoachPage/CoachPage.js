@@ -12,9 +12,9 @@ class CoachPage extends Component {
             coach : [],
             filter : {
                 filterMaSo: '',
-                filterChuyen: '',
-                filterDiemDau: '',
-                filterDiemCuoi: '',
+                filterTuyen: '',
+                filterLaXe: '',
+                filterPhuXe: '',
                 filterSoKhach: '',
                 filterGiaVe: ''
             }
@@ -24,7 +24,7 @@ class CoachPage extends Component {
     componentDidMount(){
         axios({
             method: 'GET',
-            url: 'https://5fa6d9b7085bf700163de912.mockapi.io/myapp/coach',
+            url: 'http://localhost:8080/api/v1/trips/',
             data: null
         }).then(res => {
             this.setState({
@@ -38,7 +38,7 @@ class CoachPage extends Component {
         var {coach} = this.state;
         axios({
             method: 'DELETE',
-            url: `https://5fa6d9b7085bf700163de912.mockapi.io/myapp/coach/${id}`,
+            url: `http://localhost:8080/api/v1/trips/${id}`,
             data: null
         }).then(res => { 
             if(res.status === 200){
@@ -63,13 +63,13 @@ class CoachPage extends Component {
         });
         return result;
     }
-    onFilter = (filterMaSo, filterChuyen, filterDiemDau, filterDiemCuoi, filterSoKhach, filterGiaVe) => {
+    onFilter = (filterMaSo, filterTuyen, filterLaiXe, filterPhuXe, filterSoKhach, filterGiaVe) => {
         this.setState({
             filter : {
                 filterMaSo: parseInt(filterMaSo),
-                filterChuyen: filterChuyen.toLowerCase(),
-                filterDiemDau: filterDiemDau.toLowerCase(),
-                filterDiemCuoi: filterDiemCuoi.toLowerCase(),
+                filterChuyen: filterTuyen.toLowerCase(),
+                filterDiemDau: filterLaiXe.toLowerCase(),
+                filterDiemCuoi: filterPhuXe.toLowerCase(),
                 filterSoKhach : parseInt(filterSoKhach),
                 filterGiaVe : parseInt(filterGiaVe),
             }
@@ -84,19 +84,19 @@ class CoachPage extends Component {
                     return item.maSo === filter.filterMaSo;
                 })
             }
-            if(filter.filterChuyen){
+            if(filter.filterTuyen){
                 coach = coach.filter((item) => {
-                    return item.tuyen.toLowerCase().indexOf(filter.filterChuyen) !== -1;
+                    return item.chuyen.toLowerCase().indexOf(filter.filterTuyen) !== -1;
                 })
             }
-            if(filter.filterDiemDau){
+            if(filter.filterLaiXe){
                 coach = coach.filter((item) => {
-                    return item.laiXe.toLowerCase().indexOf(filter.filterDiemDau) !== -1;
+                    return item.laiXe.toLowerCase().indexOf(filter.filterLaiXe) !== -1;
                 })
             }
-            if(filter.filterDiemCuoi){
+            if(filter.filterPhuXe){
                 coach = coach.filter((item) => {
-                    return item.phuXe.toLowerCase().indexOf(filter.filterDiemCuoi) !== -1;
+                    return item.phuXe.toLowerCase().indexOf(filter.filterPhuXe) !== -1;
                 })
             }
             if(filter.filterSoKhach){

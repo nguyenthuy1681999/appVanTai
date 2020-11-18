@@ -23,7 +23,7 @@ class DriverActionPage extends Component {
             var id = match.params.id;
             axios({
                 method: 'GET',
-                url: `https://5fa6d9b7085bf700163de912.mockapi.io/myapp/driver/${id}`,
+                url: `http://localhost:8080/api/v1/drivers/${id}`,
                 data: null
             }).then(res => { 
                 if(res.status === 200){
@@ -60,15 +60,16 @@ class DriverActionPage extends Component {
         if(id){
             axios({
                 method: 'PUT',
-                url: `https://5fa6d9b7085bf700163de912.mockapi.io/myapp/driver/${id}`,
+                url: `http://localhost:8080/api/v1/drivers/`,
                 data: {
-                    ten: ten,
-                    cmt: cmt,
-                    maSoBangLai : maSoBangLai ,
-                    loaiBangLai: loaiBangLai,
-                    diaChi : diaChi,
-                    ngaySinh : ngaySinh,
-                    thamNien : thamNien,
+                    id,
+                    ten,
+                    cmt,
+                    maSoBangLai,
+                    loaiBangLai,
+                    diaChi,
+                    ngaySinh,
+                    thamNien,
                 }
             }).then(res => {
                 history.goBack(); 
@@ -78,7 +79,7 @@ class DriverActionPage extends Component {
         }else{
             axios({
                 method: 'POST',
-                url: 'https://5fa6d9b7085bf700163de912.mockapi.io/myapp/driver',
+                url:`http://localhost:8080/api/v1/drivers/${id}`,
                 data: {
                     ten: ten,
                     cmt: cmt,

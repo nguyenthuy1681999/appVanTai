@@ -22,7 +22,7 @@ class StreetPage extends Component {
     componentDidMount(){
         axios({
             method: 'GET',
-            url: 'https://5fa6d9b7085bf700163de912.mockapi.io/myapp/street',
+            url: 'http://localhost:8080/api/v1/routes/',
             data: null
         }).then(res => {
             this.setState({
@@ -36,7 +36,7 @@ class StreetPage extends Component {
         var {street} = this.state;
         axios({
             method: 'DELETE',
-            url: `https://5fa6d9b7085bf700163de912.mockapi.io/myapp/street/${id}`,
+            url: `http://localhost:8080/api/v1/routes/${id}`,
             data: null
         }).then(res => { 
             if(res.status === 200){
